@@ -15,4 +15,4 @@ COPY config/hbase-site.xml ${HBASE_HOME}/conf
 
 #start hbase in pseudo distributed mode
 COPY script/* /script/
-CMD ["sh","/script/start-pseudo.sh"]
+CMD /bin/bash /script/start-pseudo.sh && /bin/bash

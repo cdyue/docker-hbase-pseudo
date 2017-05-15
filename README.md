@@ -15,8 +15,18 @@ docker pull nidozhao/hbase-pseudo
 ### Usage
 #### launch
 ```shell
-docker run --hostname=hbasedocker -p 2181:2181 -p 60000:60000 -p 60010:60010 -p 60020:60020 -p 60030:60030 nidozhao/hbase-pseudo &
+docker run -t -i --hostname=hbasedocker -p 2181:2181 -p 60000:60000 -p 60010:60010 -p 60020:60020 -p 60030:60030 nidozhao/hbase-pseudo
 ```
 
 #### verify
 open `http://127.0.0.1:60010/master-status` at browser
+
+#### use hbase shell
+```shell
+$HBASE_HOME/bin/hbase shell
+```
+
+#### check master log
+```
+tail -f $HBASE_HOME/logs/hbase--master-hbasedocker.log
+```
