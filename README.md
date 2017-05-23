@@ -8,14 +8,14 @@ This repository contains Dockerfile of HBase 0.98.12 in pseudo distributed mode 
 1. install docker
 2. pull image
 ```shell
-docker pull nidozhao/hbase-pseudo
+docker pull nidozhao/hbase-pseudo:0.98.12
 ```
 3. add `127.0.0.1 hbasedocker` to `/etc/hosts`
 
 ### Usage
 #### launch
 ```shell
-docker run -t -i --hostname=hbasedocker -p 2181:2181 -p 60000:60000 -p 60010:60010 -p 60020:60020 -p 60030:60030 nidozhao/hbase-pseudo
+docker run -t -i --hostname=hbasedocker -p 2181:2181 -p 60000:60000 -p 60010:60010 -p 60020:60020 -p 60030:60030 nidozhao/hbase-pseudo:0.98.12
 ```
 
 #### verify
