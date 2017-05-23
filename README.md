@@ -1,5 +1,5 @@
 # Docker HBase Pseudo Mode
-This repository contains Dockerfile of HBase 0.98.12 in pseudo distributed mode for Docker's [automated build](https://hub.docker.com/r/nidozhao/hbase-pseudo/).
+This repository contains Dockerfile of HBase 1.2.0 in pseudo distributed mode for Docker's [automated build](https://hub.docker.com/r/nidozhao/hbase-pseudo/).
 
 ### Base Docker Image
 - [openjdk](https://store.docker.com/images/openjdk?tab=description)
