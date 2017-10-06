@@ -2,6 +2,7 @@ FROM openjdk:8
 MAINTAINER yu zhao <nido.zhao@gmail.com>
 
 #prepare system
+RUN echo "vm.swappiness = 0" >> /etc/sysctl.conf
 ENV HBASE_HOME=/hbase-0.98.12-hadoop2
 
 #download hbase
