@@ -3,7 +3,6 @@ MAINTAINER yu zhao <nido.zhao@gmail.com>
 
 #prepare system
 RUN echo "vm.swappiness = 0" >> /etc/sysctl.conf
-CMD sysctl -p
 ENV HBASE_HOME=/hbase-0.98.12-hadoop2
 
 #download hbase
@@ -17,4 +16,5 @@ COPY config/hbase-site.xml ${HBASE_HOME}/conf
 
 #start hbase in pseudo distributed mode
 COPY script/* /script/
+CMD sysctl -p
 CMD /bin/bash /script/start-pseudo.sh && /bin/bash
