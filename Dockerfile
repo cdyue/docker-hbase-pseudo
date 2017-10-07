@@ -3,6 +3,7 @@ MAINTAINER yu zhao <nido.zhao@gmail.com>
 
 #prepare system
 RUN echo "vm.swappiness = 0" >> /etc/sysctl.conf
+CMD sysctl -p
 ENV HBASE_HOME=/hbase-1.2.0
 
 #download hbase
