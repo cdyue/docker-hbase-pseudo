@@ -38,7 +38,7 @@
 # Below are what we set by default.  May only work with SUN JVM.
 # For more on why as well as other possible settings,
 # see http://wiki.apache.org/hadoop/PerformanceTuning
-export HBASE_OPTS="-server -Xms1G -Xmx1G -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:-CMSConcurrentMTEnabled -XX:+CMSIncrementalMode -XX:CMSInitiatingOccupancyFraction=70"
+export HBASE_OPTS="-server -Xms1G -Xmx1G -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:-CMSConcurrentMTEnabled -XX:CMSInitiatingOccupancyFraction=70"
 
 # Uncomment one of the below three options to enable java garbage collection logging for the server-side processes.
 
