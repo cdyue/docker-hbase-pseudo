@@ -1,7 +1,11 @@
-FROM openjdk:8
+FROM openjdk:8-jre-alpine
 MAINTAINER yu zhao <nido.zhao@gmail.com>
 
 #prepare system
+RUN   apk update \                                                                                                                                                                                                                        
+ &&   apk add ca-certificates wget \                                                                                                                                                                                                      
+ &&   update-ca-certificates
+RUN apk add --update bash && rm -rf /var/cache/apk/*
 ENV HBASE_HOME=/hbase-0.98.12-hadoop2
 
 #download hbase
