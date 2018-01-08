@@ -1,5 +1,5 @@
 FROM openjdk:8
-MAINTAINER yu zhao <nido.zhao@gmail.com>
+MAINTAINER cdyue <acrhwfy@gmail.com>
 
 #prepare system
 RUN echo "vm.swappiness = 0" >> /etc/sysctl.conf
@@ -17,4 +17,4 @@ COPY config/hbase-site.xml ${HBASE_HOME}/conf
 
 #start hbase in pseudo distributed mode
 COPY script/* /script/
-CMD /bin/bash /script/start-pseudo.sh && /bin/bash
+CMD /bin/bash /script/start-pseudo.sh
