@@ -1,11 +1,10 @@
 # Docker HBase Pseudo Mode
-This repository contains Dockerfile of HBase 0.98.12 in pseudo distributed mode for Docker's [automated build](https://hub.docker.com/r/nidozhao/hbase-pseudo/).
+This repository contains Dockerfile of HBase 1.2.0 in pseudo distributed mode for Docker's [automated build](https://github.com/cdyue/docker-hbase-pseudo).
 
 ### Base Docker Image
 - [openjdk](https://store.docker.com/images/openjdk?tab=description)
 
 ### Support HBase Version
-- [0.98.12](https://github.com/zhao-y/docker-hbase-pseudo/tree/0.98.12)
 - [1.2.0](https://github.com/zhao-y/docker-hbase-pseudo/tree/1.2.0)
 
 ### Installation
@@ -19,20 +18,34 @@ docker pull nidozhao/hbase-pseudo:{tag}
 ### Usage
 #### launch
 
-##### 0.98.12
-```shell
-docker run -it --hostname=hbasedocker -p 2181:2181 -p 60000:60000 -p 60010:60010 -p 60020:60020 -p 60030:60030 nidozhao/hbase-pseudo:0.98.12
-```
 
 ##### 1.2.0
 ```shell
 docker run -it --hostname=hbasedocker -p 2181:2181 -p 16000:16000 -p 16010:16010 -p 16020:16020 -p 16030:16030 nidozhao/hbase-pseudo:1.2.0
 ```
+* initial
+mount init-hbase.txt to `/hbase/hbase/init-hbase.txt`,it will be executed at the first time.
 
+docker-compose
+```
+version: '2'
+services:
+  hbase-docker:
+    hostname: hbase-docker
+    image: libac/docker-hbase-pseudo:1.2.0
+    ports:
+      - "2181:2181"
+      - "16000:16000"
+      - "16010:16010"
+      - "16020:16020"
+      - "16030:16030"
+    volumes:
+      - ./data/hbase:/hbase/hbase
+      - ./logs/hbase:/hbase-1.2.0/logs
+    network_mode: "bridge"
+    container_name: hbase-docker
+```
 #### verify master status
-
-##### 0.98.12
-open `http://127.0.0.1:60010/master-status` at browser
 
 ##### 1.2.0
 open `http://127.0.0.1:16010/master-status` at browser
